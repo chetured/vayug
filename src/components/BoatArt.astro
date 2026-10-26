@@ -1,0 +1,31 @@
+---
+// Placeholder illustration for boats without photos (sample data, or a feed
+// that sent no pictures). Real feeds replace this with fleet photos.
+const { type = "catamaran" } = Astro.props;
+---
+<svg class="boat-art" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#173c63" />
+      <stop offset="1" stop-color="#1f7a8c" />
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#sky)" />
+  <circle cx="250" cy="52" r="20" fill="#ffd9a8" opacity="0.85" />
+  <rect y="138" width="320" height="62" fill="#145c6b" />
+  {type === "catamaran" ? (
+    <g>
+      <path d="M160 40 L160 120 L205 120 Z" fill="#f6efe3" />
+      <path d="M156 52 L156 120 L122 120 Z" fill="#ffffff" opacity="0.9" />
+      <rect x="112" y="122" width="104" height="8" rx="2" fill="#f6efe3" />
+      <path d="M108 130 h46 l-6 10 h-36 z M174 130 h46 l-6 10 h-36 z" fill="#ffffff" />
+    </g>
+  ) : (
+    <g>
+      <path d="M160 34 L160 122 L208 122 Z" fill="#f6efe3" />
+      <path d="M156 48 L156 122 L118 122 Z" fill="#ffffff" opacity="0.9" />
+      <path d="M110 124 h110 l-14 16 h-84 z" fill="#ffffff" />
+    </g>
+  )}
+  <path d="M0 150 Q40 142 80 150 T160 150 T240 150 T320 150" stroke="#ffffff" stroke-opacity="0.25" stroke-width="2" fill="none" />
+</svg>

@@ -1,0 +1,20 @@
+{
+  "name": "Vayu Sailing Co.",
+  "shortName": "Vayu",
+  "domain": "vayug.com",
+  "secondaryDomains": ["vayugsailing.com"],
+  "tagline": "Real open weeks on hand-picked yachts, worldwide.",
+  "story": "Vayu (VAH-yoo) is the Sanskrit god of wind, the force that fills every sail.",
+  "email": "hello@vayug.com",
+  "phone": "",
+  "whatsapp": "",
+  "address": "Ohio, USA",
+  "languages": ["English", "Hindi", "Telugu"],
+  "social": {
+    "instagram": "",
+    "facebook": "",
+    "tiktok": "",
+    "youtube": ""
+  },
+  "currency": "USD"
+}

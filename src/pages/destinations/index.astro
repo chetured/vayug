@@ -1,0 +1,19 @@
+---
+import Base from "../../layouts/Base.astro";
+import { destinations, yachts, url } from "../../lib/data.js";
+const count = (slug) => yachts.filter((y) => y.base.destination === slug).reduce((n, y) => n + y.weeks.length, 0);
+---
+<Base title="Yacht charter destinations" description="Where to charter a catamaran or sailing yacht: the BVI, Bahamas, St. Martin, the Grenadines, Greece and Croatia, with the best months for each.">
+  <section class="hero page-hero"><div class="container"><h1>Destinations</h1><p class="lead">Caribbean winters and Mediterranean summers. Here's when and where to go.</p></div></section>
+  <section class="section">
+    <div class="container grid">
+      {destinations.map((d) => (
+        <a class={`dest-tile ${d.region === "Mediterranean" ? "med" : ""}`} href={url(`/destinations/${d.slug}/`)}>
+          <span class="tag">{d.region}</span>
+          <h3>{d.name}</h3>
+          <p>Best {d.bestMonths} &middot; {count(d.slug)} open weeks</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

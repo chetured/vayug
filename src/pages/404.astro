@@ -1,0 +1,11 @@
+---
+import Base from "../layouts/Base.astro";
+import { url } from "../lib/data.js";
+---
+<Base title="Page not found" noindex>
+  <section class="section"><div class="container prose">
+    <h1>That boat has sailed.</h1>
+    <p>The page you're looking for isn't here, or the week has been booked.</p>
+    <p><a class="btn btn-primary" href={url("/open-weeks/")}>See current open weeks</a></p>
+  </div></section>
+</Base>

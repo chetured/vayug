@@ -1,0 +1,88 @@
+---
+// Sends enquiries to the form backend in PUBLIC_FORM_ENDPOINT (for example
+// Formspree). Until that is set up, the form opens the visitor's email app
+// with the details filled in, so no enquiry is ever lost.
+import { site, destinations } from "../lib/data.js";
+const { yacht, compact = false } = Astro.props;
+const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || "";
+---
+<form class="enquiry-form" method="POST" action={endpoint || "#"} data-endpoint={endpoint} data-email={site.email}>
+  {yacht && <input type="hidden" name="yacht" value={`${yacht.model} "${yacht.name}" (${yacht.id})`} />}
+  <input type="hidden" name="week" value="" />
+  <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+  <div class="row">
+    <label>Name<input name="name" required autocomplete="name" /></label>
+    <label>Email<input type="email" name="email" required autocomplete="email" /></label>
+  </div>
+  <div class="row">
+    <label>Phone or WhatsApp <span class="hint">(optional)</span><input name="phone" autocomplete="tel" /></label>
+    <label>Guests<input type="number" name="guests" min="1" max="14" value="6" /></label>
+  </div>
+  {!yacht && (
+    <div class="row">
+      <label>Where
+        <select name="destination">
+          <option value="">Not sure yet</option>
+          {destinations.map((d) => <option value={d.name}>{d.name}</option>)}
+          <option value="Somewhere else">Somewhere else</option>
+        </select>
+      </label>
+      <label>When <span class="hint">(dates or month)</span><input name="dates" placeholder="e.g. March 2027" /></label>
+    </div>
+  )}
+  {!compact && (
+    <div class="row">
+      <label>Charter type
+        <select name="charter_type">
+          <option>Skippered (captain included)</option>
+          <option>Bareboat (we sail ourselves)</option>
+          <option>Fully crewed (captain and chef)</option>
+          <option>Not sure, advise me</option>
+        </select>
+      </label>
+      <label>Budget per week <span class="hint">(USD)</span>
+        <select name="budget">
+          <option>Under $8,000</option>
+          <option selected>$8,000 to $15,000</option>
+          <option>$15,000 to $30,000</option>
+          <option>Over $30,000</option>
+        </select>
+      </label>
+    </div>
+  )}
+  <label>Anything else? <span class="hint">(occasion, sailing experience, questions)</span><textarea name="message" rows={compact ? 2 : 4}></textarea></label>
+  <button class="btn btn-primary" type="submit" style="width: 100%">Send enquiry</button>
+  <p class="form-note" data-status>We aim to reply within a few hours, in English, Hindi or Telugu. No payment is taken until you approve a written quote.</p>
+</form>
+<script>
+  for (const form of document.querySelectorAll<HTMLFormElement>(".enquiry-form")) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const status = form.querySelector("[data-status]");
+      const data = new FormData(form);
+      if (data.get("_gotcha")) return;
+      const endpoint = form.dataset.endpoint;
+      if (endpoint) {
+        const res = await fetch(endpoint, { method: "POST", body: data, headers: { Accept: "application/json" } });
+        if (status) status.textContent = res.ok ? "Thank you! We've got your enquiry and will reply soon." : "Sorry, that didn't send. Please email us instead.";
+        if (res.ok) {
+          form.reset();
+          (window as any).gtag?.("event", "generate_lead");
+        }
+        return;
+      }
+      const lines = [...data.entries()].filter(([k, v]) => !k.startsWith("_") && v).map(([k, v]) => `${k}: ${v}`);
+      window.location.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent("Charter enquiry")}&body=${encodeURIComponent(lines.join("\n"))}`;
+    });
+  }
+  // "Enquire" buttons on yacht pages fill in the chosen week.
+  document.addEventListener("click", (event) => {
+    const btn = (event.target as HTMLElement).closest<HTMLElement>("[data-pick-week]");
+    if (!btn) return;
+    const input = document.querySelector<HTMLInputElement>('.enquiry-form input[name="week"]');
+    if (input) input.value = btn.dataset.pickWeek || "";
+    const label = document.querySelector("[data-picked-week]");
+    if (label) label.textContent = `Selected week: ${btn.dataset.pickWeek}`;
+    document.querySelector(".enquiry-form")?.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+</script>

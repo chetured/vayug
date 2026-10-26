@@ -1,0 +1,50 @@
+# Every Monday: drafts the weekly "open weeks" email and a week of social
+# posts with Claude, from live availability. Drafts are committed to
+# marketing/ and attached to the run for review before sending.
+name: Weekly marketing drafts
+
+on:
+  schedule:
+    - cron: "0 12 * * 1" # Mondays 12:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  drafts:
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      SITE_URL: ${{ vars.CUSTOM_DOMAIN && format('https://{0}', vars.CUSTOM_DOMAIN) || format('https://{0}.github.io', github.repository_owner) }}
+      BASE_PATH: ${{ vars.CUSTOM_DOMAIN && '/' || format('/{0}', github.event.repository.name) }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Stop if Claude is not set up yet
+        if: env.ANTHROPIC_API_KEY == ''
+        run: |
+          echo "::notice::Add the ANTHROPIC_API_KEY secret to turn on marketing drafts."
+          exit 0
+      - uses: actions/setup-node@v4
+        if: env.ANTHROPIC_API_KEY != ''
+        with:
+          node-version: 22
+          cache: npm
+      - if: env.ANTHROPIC_API_KEY != ''
+        run: npm ci
+      - if: env.ANTHROPIC_API_KEY != ''
+        run: npm run ai:newsletter
+      - if: env.ANTHROPIC_API_KEY != ''
+        run: npm run ai:social
+      - if: env.ANTHROPIC_API_KEY != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: marketing-drafts
+          path: marketing/
+      - name: Commit drafts
+        if: env.ANTHROPIC_API_KEY != ''
+        run: |
+          git config user.name "vayu-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add marketing/
+          git diff --cached --quiet || (git commit -m "Marketing drafts $(date -u +%F)" && git push)

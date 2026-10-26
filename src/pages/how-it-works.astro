@@ -1,0 +1,26 @@
+---
+import Base from "../layouts/Base.astro";
+import { url } from "../lib/data.js";
+---
+<Base title="How booking works" description="How booking a yacht charter through us works: quote, hold, deposit, contract and boarding.">
+  <section class="hero page-hero"><div class="container"><h1>How booking works</h1><p class="lead">Five simple steps from first question to casting off.</p></div></section>
+  <section class="section">
+    <div class="container prose">
+      <ol>
+        <li><strong>Tell us what you want.</strong> Dates, destination, group size and whether you want a skipper. Not sure? We'll advise.</li>
+        <li><strong>Get a written quote.</strong> We check live availability with the charter company and send you options with the full price and what's included.</li>
+        <li><strong>Hold the boat.</strong> Most charter companies will hold a yacht for a few days while you decide, at no cost.</li>
+        <li><strong>Confirm and pay a deposit.</strong> Usually 50% to confirm, with the balance due 4 to 8 weeks before departure. You sign the charter company's contract; we handle the paperwork.</li>
+        <li><strong>Sail.</strong> Before you go we help with provisioning, flights and a skipper if you need one. The charter company hands over the boat at the base.</li>
+      </ol>
+      <h2>Good to know</h2>
+      <ul>
+        <li><strong>Bareboat</strong> means you sail the boat yourselves. Charter companies ask for a sailing résumé and, in some countries, a recognised licence.</li>
+        <li><strong>Skippered</strong> charters add a professional captain, paid per day, so no experience is needed.</li>
+        <li><strong>Security deposit:</strong> charter companies take a refundable damage deposit at check-in, or offer a non-refundable damage waiver instead.</li>
+        <li><strong>Insurance:</strong> we recommend trip cancellation insurance for every booking.</li>
+      </ul>
+      <p><a class="btn btn-primary" href={url("/contact/")}>Start with a free quote</a></p>
+    </div>
+  </section>
+</Base>

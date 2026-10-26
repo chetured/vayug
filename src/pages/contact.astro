@@ -1,0 +1,20 @@
+---
+import Base from "../layouts/Base.astro";
+import EnquiryForm from "../components/EnquiryForm.astro";
+import { site } from "../lib/data.js";
+---
+<Base title="Get a charter quote" description="Tell us your dates and group and we'll send you real options from charter fleets worldwide. Free, no obligation.">
+  <section class="hero page-hero"><div class="container"><h1>Plan your charter</h1><p class="lead">Tell us a little about your trip. We'll check every fleet, including boats not listed on this site, and send you options.</p></div></section>
+  <section class="section">
+    <div class="container detail">
+      <div><EnquiryForm /></div>
+      <aside class="sticky-box">
+        <h3>Prefer to talk?</h3>
+        <p>Email <a href={`mailto:${site.email}`}>{site.email}</a></p>
+        {site.phone && <p>Call <a href={`tel:${site.phone}`}>{site.phone}</a></p>}
+        {site.whatsapp && <p><a href={`https://wa.me/${site.whatsapp.replace(/\D/g, "")}`}>WhatsApp us</a></p>}
+        <p class="muted small">We speak {site.languages.join(", ")}.</p>
+      </aside>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,24 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../lib/data.js";
+---
+<Base title="Booking terms" description={`How bookings made through ${site.name} work.`}>
+  <section class="section">
+    <div class="container prose">
+      <h1>Booking terms</h1>
+      <p class="demo-banner" style="border-radius:10px">Draft for review by our attorney before launch.</p>
+      <h2>Our role</h2>
+      <p>{site.name} LLC ("we") acts as a booking agent between you and the charter company that owns or operates the yacht ("the operator"). Your charter contract is with the operator, and the operator's own terms and conditions govern the charter, including payment schedule, cancellation, security deposit, insurance and conduct on board. We send you those terms before you pay.</p>
+      <h2>Quotes and prices</h2>
+      <p>Prices on this website come from the operators' booking systems and may change until a booking is confirmed in writing. Prices are shown in US dollars; where an operator charges in another currency, the amount in that currency on your contract is what applies.</p>
+      <h2>Payments</h2>
+      <p>Payments are made as set out in your quote and contract, either directly to the operator or through us. Where we collect money for an operator, we hold it in a separate client account and pass it on as the contract requires.</p>
+      <h2>Changes and cancellations</h2>
+      <p>Changes and cancellations follow the operator's terms. We strongly recommend travel insurance that covers trip cancellation.</p>
+      <h2>Responsibility</h2>
+      <p>We take care in describing yachts and destinations, but the operator is responsible for the yacht, its condition and the services it provides. Our liability is limited to the services we provide as an agent, to the extent the law allows.</p>
+      <h2>Contact</h2>
+      <p>Questions about a booking: <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+    </div>
+  </section>
+</Base>

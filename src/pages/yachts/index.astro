@@ -1,0 +1,66 @@
+---
+import Base from "../../layouts/Base.astro";
+import YachtCard from "../../components/YachtCard.astro";
+import { yachts, destinations } from "../../lib/data.js";
+const list = [...yachts].sort((a, b) => (a.weeks.length ? 0 : 1) - (b.weeks.length ? 0 : 1));
+---
+<Base title="Find a charter yacht" description="Search catamarans and sailing yachts with open charter weeks in the BVI, Bahamas, Caribbean, Greece and Croatia.">
+  <section class="hero page-hero">
+    <div class="container">
+      <h1>Find a yacht</h1>
+      <p class="lead">Filter by where, when and how many cabins. Every boat here has open weeks right now.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <form class="filters" id="filters">
+        <label>Destination
+          <select name="destination"><option value="">Anywhere</option>{destinations.map((d) => <option value={d.slug}>{d.name}</option>)}</select>
+        </label>
+        <label>Month<input type="month" name="month" /></label>
+        <label>Boat type
+          <select name="type"><option value="">Any</option><option value="catamaran">Catamaran</option><option value="monohull">Monohull</option></select>
+        </label>
+        <label>Cabins
+          <select name="cabins"><option value="">Any</option><option value="3">3+</option><option value="4">4+</option><option value="5">5+</option></select>
+        </label>
+        <label>Max price per week
+          <select name="max"><option value="">Any</option><option value="6000">$6,000</option><option value="10000">$10,000</option><option value="15000">$15,000</option><option value="25000">$25,000</option></select>
+        </label>
+      </form>
+      <p class="result-count" id="result-count"></p>
+      <div class="grid" id="results">{list.map((y) => <YachtCard yacht={y} />)}</div>
+      <p id="no-results" class="muted" hidden>No yacht matches those filters right now. <a href="../contact/">Tell us what you're looking for</a> and we'll search every fleet for you, including boats not listed here.</p>
+    </div>
+  </section>
+</Base>
+<script>
+  const form = document.getElementById("filters") as HTMLFormElement;
+  const count = document.getElementById("result-count")!;
+  const none = document.getElementById("no-results")!;
+  const params = new URLSearchParams(location.search);
+  for (const [k, v] of params) {
+    const el = form.elements.namedItem(k) as HTMLInputElement | null;
+    if (el) el.value = v;
+  }
+  function apply() {
+    const f = Object.fromEntries(new FormData(form)) as Record<string, string>;
+    let shown = 0;
+    for (const card of document.querySelectorAll<HTMLElement>("#results .card")) {
+      const d = card.dataset;
+      const ok =
+        (!f.destination || d.destination === f.destination) &&
+        (!f.type || d.type === f.type) &&
+        (!f.cabins || Number(d.cabins) >= Number(f.cabins)) &&
+        (!f.max || (d.price && Number(d.price) <= Number(f.max))) &&
+        (!f.month || (d.starts || "").split(",").some((s) => s.startsWith(f.month)));
+      card.style.display = ok ? "" : "none";
+      if (ok) shown++;
+    }
+    count.textContent = `${shown} yacht${shown === 1 ? "" : "s"} with open weeks`;
+    none.hidden = shown > 0;
+    history.replaceState(null, "", "?" + new URLSearchParams(Object.entries(f).filter(([, v]) => v)).toString());
+  }
+  form.addEventListener("change", apply);
+  apply();
+</script>

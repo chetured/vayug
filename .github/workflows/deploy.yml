@@ -1,0 +1,93 @@
+# Refreshes availability from the booking systems, writes any missing yacht
+# descriptions with Claude, and publishes the site to GitHub Pages.
+# Runs on every push to main, every morning, and on demand.
+name: Sync and deploy site
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 9 * * *" # 09:00 UTC daily
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      AVAILABILITY_SOURCES: ${{ vars.AVAILABILITY_SOURCES || 'sample' }}
+      FX_EUR_USD: ${{ vars.FX_EUR_USD || '1.08' }}
+      NAUSYS_USERNAME: ${{ secrets.NAUSYS_USERNAME }}
+      NAUSYS_PASSWORD: ${{ secrets.NAUSYS_PASSWORD }}
+      BOOKING_MANAGER_API_KEY: ${{ secrets.BOOKING_MANAGER_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      PUBLIC_FORM_ENDPOINT: ${{ vars.PUBLIC_FORM_ENDPOINT }}
+      PUBLIC_GA_ID: ${{ vars.PUBLIC_GA_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - name: Sync availability
+        # A failing feed keeps its boats from the last run, so carry on.
+        run: npm run sync || echo "::warning::One or more availability sources failed; see log above"
+
+      - name: Write missing yacht descriptions
+        if: env.ANTHROPIC_API_KEY != ''
+        run: npm run ai:listings || echo "::warning::Some descriptions could not be written"
+
+      - run: npm run check
+
+      - name: Save refreshed data
+        run: |
+          if ! git diff --quiet -- src/data/yachts.json; then
+            git config user.name "vayu-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add src/data/yachts.json
+            git commit -m "Refresh availability $(date -u +%F)"
+            git push
+          fi
+
+      - name: Work out the site address
+        id: site
+        run: |
+          if [ -n "${{ vars.CUSTOM_DOMAIN }}" ]; then
+            echo "url=https://${{ vars.CUSTOM_DOMAIN }}" >> "$GITHUB_OUTPUT"
+            echo "base=/" >> "$GITHUB_OUTPUT"
+            echo "${{ vars.CUSTOM_DOMAIN }}" > public/CNAME
+          else
+            echo "url=https://${{ github.repository_owner }}.github.io" >> "$GITHUB_OUTPUT"
+            echo "base=/${{ github.event.repository.name }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build
+        run: npm run build
+        env:
+          SITE_URL: ${{ steps.site.outputs.url }}
+          BASE_PATH: ${{ steps.site.outputs.base }}
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
