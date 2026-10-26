@@ -1,0 +1,33 @@
+---
+import BoatArt from "./BoatArt.astro";
+import { destination, fromPrice, bestDiscount, money, url } from "../lib/data.js";
+const { yacht } = Astro.props;
+const price = fromPrice(yacht);
+const off = bestDiscount(yacht);
+const dest = destination(yacht.base.destination);
+---
+<a class="card" href={url(`/yachts/${yacht.slug}/`)}
+   data-destination={yacht.base.destination} data-type={yacht.type} data-cabins={yacht.cabins}
+   data-price={price ?? ""} data-starts={yacht.weeks.map((w) => w.start).join(",")}>
+  <div class="card-media">
+    {yacht.images[0] ? <img src={yacht.images[0]} alt={`${yacht.model} ${yacht.name}`} loading="lazy" /> : <BoatArt type={yacht.type} />}
+    {off > 0 && <span class="badge">Up to {off}% off</span>}
+    {yacht.sample && <span class="badge sample">Sample</span>}
+  </div>
+  <div class="card-body">
+    <span class="muted small">{yacht.base.name}, {dest?.name ?? yacht.base.country}</span>
+    <h3>{yacht.model}</h3>
+    <span class="muted small">{yacht.name}</span>
+    <div class="specs">
+      <span>{yacht.type === "catamaran" ? "Catamaran" : "Monohull"}</span>
+      {yacht.lengthFt && <span>{Math.round(yacht.lengthFt)} ft</span>}
+      {yacht.cabins && <span>{yacht.cabins} cabins</span>}
+      {yacht.berths && <span>sleeps {yacht.berths}</span>}
+      {yacht.year && <span>{yacht.year}</span>}
+    </div>
+    <div class="price-row">
+      {price ? <span><span class="muted small">from</span> <span class="price">{money(price)}</span><span class="muted small"> /week</span></span> : <span class="muted">Ask for dates</span>}
+      <span class="small muted">{yacht.weeks.length} open weeks</span>
+    </div>
+  </div>
+</a>

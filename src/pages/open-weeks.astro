@@ -1,0 +1,57 @@
+---
+import Base from "../layouts/Base.astro";
+import { openWeeks, destinations, money, dateRange, url, destination } from "../lib/data.js";
+const deals = openWeeks({ days: 120 });
+---
+<Base title="Open weeks and last-minute yacht charter deals" description="Every open charter week starting in the next four months, sorted by biggest discount. Catamarans and sailing yachts in the Caribbean and Mediterranean.">
+  <section class="hero page-hero">
+    <div class="container">
+      <p class="eyebrow" style="color: #ffd9a8">Updated daily</p>
+      <h1>Open weeks</h1>
+      <p class="lead">{deals.length} open charter weeks starting in the next four months, biggest discounts first. Prices are per boat per week, not per person.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="filters" style="grid-template-columns: repeat(3, 1fr)">
+        <label>Destination
+          <select id="deal-dest"><option value="">Anywhere</option>{destinations.map((d) => <option value={d.slug}>{d.name}</option>)}</select>
+        </label>
+        <label>Boat type
+          <select id="deal-type"><option value="">Any</option><option value="catamaran">Catamaran</option><option value="monohull">Monohull</option></select>
+        </label>
+        <label>Starting within
+          <select id="deal-days"><option value="120">4 months</option><option value="60">2 months</option><option value="30">30 days</option><option value="14">2 weeks</option></select>
+        </label>
+      </div>
+      <table class="deals">
+        <thead><tr><th>Yacht</th><th>Where</th><th>Dates</th><th>Price per week</th><th></th></tr></thead>
+        <tbody>
+          {deals.map(({ yacht, week, discount }) => (
+            <tr data-dest={yacht.base.destination} data-type={yacht.type} data-start={week.start}>
+              <td><strong>{yacht.model}</strong>{yacht.sample && <span class="muted small"> (sample)</span>}<br /><span class="muted small">{yacht.cabins} cabins, sleeps {yacht.berths}</span></td>
+              <td>{yacht.base.name}<br /><span class="muted small">{destination(yacht.base.destination)?.name}</span></td>
+              <td>{dateRange(week.start, week.end)}</td>
+              <td><strong>{money(week.price)}</strong>{discount > 0 && <><span class="was">{money(week.listPrice)}</span> <span class="off">-{discount}%</span></>}</td>
+              <td><a class="btn btn-primary" style="padding: 8px 14px" href={url(`/yachts/${yacht.slug}/#week-${week.start}`)}>Enquire</a></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="muted small" style="margin-top: 16px">Prices come from the charter companies' systems, converted to US dollars, and are confirmed in writing before you pay anything. Fuel, marina fees, provisioning and optional extras such as a skipper are not included unless stated.</p>
+    </div>
+  </section>
+</Base>
+<script>
+  const dest = document.getElementById("deal-dest") as HTMLSelectElement;
+  const type = document.getElementById("deal-type") as HTMLSelectElement;
+  const days = document.getElementById("deal-days") as HTMLSelectElement;
+  function apply() {
+    const until = new Date(Date.now() + Number(days.value) * 86400000).toISOString().slice(0, 10);
+    for (const row of document.querySelectorAll<HTMLElement>("tbody tr")) {
+      const show = (!dest.value || row.dataset.dest === dest.value) && (!type.value || row.dataset.type === type.value) && (row.dataset.start || "") <= until;
+      row.style.display = show ? "" : "none";
+    }
+  }
+  [dest, type, days].forEach((el) => el.addEventListener("change", apply));
+</script>

@@ -1,0 +1,116 @@
+---
+import Base from "../layouts/Base.astro";
+import YachtCard from "../components/YachtCard.astro";
+import { site, yachts, destinations, openWeeks, money, dateRange, url, bestDiscount } from "../lib/data.js";
+
+const deals = openWeeks({ days: 75 }).slice(0, 6);
+const featured = [...yachts].filter((y) => y.weeks.length).sort((a, b) => bestDiscount(b) - bestDiscount(a)).slice(0, 6);
+const totalWeeks = yachts.reduce((n, y) => n + y.weeks.length, 0);
+---
+<Base description="Find real open charter weeks on catamarans and sailing yachts in the BVI, Bahamas, Caribbean, Greece and Croatia. Live availability, honest prices, fast replies.">
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow" style="color: #ffd9a8">Yacht charter agency, worldwide</p>
+      <h1>Find a yacht week that's actually free.</h1>
+      <p class="lead">We show open weeks from charter fleets across the Caribbean and the Mediterranean, updated every day, with the real price. Tell us your dates and we'll handle the rest.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href={url("/open-weeks/")}>See this month's open weeks</a>
+        <a class="btn btn-light" href={url("/contact/")}>Get a free quote</a>
+      </div>
+    </div>
+    <svg class="hero-waves" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60 Q360 10 720 50 T1440 40 V90 H0 Z" fill="#ffffff" /></svg>
+  </section>
+
+  <div class="container">
+    <form class="search-bar" action={url("/yachts/")} method="get">
+      <label>Destination
+        <select name="destination">
+          <option value="">Anywhere</option>
+          {destinations.map((d) => <option value={d.slug}>{d.name}</option>)}
+        </select>
+      </label>
+      <label>Month<input type="month" name="month" /></label>
+      <label>Boat type
+        <select name="type"><option value="">Any</option><option value="catamaran">Catamaran</option><option value="monohull">Monohull</option></select>
+      </label>
+      <label>Cabins
+        <select name="cabins"><option value="">Any</option><option value="3">3+</option><option value="4">4+</option><option value="5">5+</option></select>
+      </label>
+      <button class="btn btn-primary" type="submit">Search {totalWeeks} open weeks</button>
+    </form>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Last-minute open weeks</p>
+          <h2>Biggest savings in the next 10 weeks</h2>
+        </div>
+        <a class="btn btn-outline" href={url("/open-weeks/")}>All open weeks</a>
+      </div>
+      {deals.length ? (
+        <table class="deals">
+          <thead><tr><th>Yacht</th><th>Where</th><th>Dates</th><th>Price per week</th><th></th></tr></thead>
+          <tbody>
+            {deals.map(({ yacht, week, discount }) => (
+              <tr>
+                <td><strong>{yacht.model}</strong><br /><span class="muted small">{yacht.cabins} cabins, {yacht.type}</span></td>
+                <td>{yacht.base.name}</td>
+                <td>{dateRange(week.start, week.end)}</td>
+                <td><strong>{money(week.price)}</strong>{discount > 0 && <><span class="was">{money(week.listPrice)}</span> <span class="off">-{discount}%</span></>}</td>
+                <td><a class="btn btn-primary" style="padding: 8px 14px" href={url(`/yachts/${yacht.slug}/`)}>View</a></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : <p class="muted">New open weeks are added every day. <a href={url("/contact/")}>Tell us your dates</a> and we'll find one.</p>}
+    </div>
+  </section>
+
+  <section class="section sand">
+    <div class="container">
+      <div class="section-head">
+        <div><p class="eyebrow">Where we sail</p><h2>Destinations</h2></div>
+        <a class="btn btn-outline" href={url("/destinations/")}>All destinations</a>
+      </div>
+      <div class="grid">
+        {destinations.map((d) => (
+          <a class={`dest-tile ${d.region === "Mediterranean" ? "med" : ""}`} href={url(`/destinations/${d.slug}/`)}>
+            <span class="tag">{d.region}{d.flagship ? ", home of our own catamaran" : ""}</span>
+            <h3>{d.name}</h3>
+            <p>Best {d.bestMonths}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><p class="eyebrow">Hand-picked yachts</p><h2>Available now</h2></div><a class="btn btn-outline" href={url("/yachts/")}>Browse all yachts</a></div>
+      <div class="grid">{featured.map((y) => <YachtCard yacht={y} />)}</div>
+    </div>
+  </section>
+
+  <section class="section sand">
+    <div class="container">
+      <h2>Why book with {site.name}</h2>
+      <div class="features" style="margin-top: 28px">
+        <div class="feature"><div class="icon">&#9200;</div><h3>Live, real availability</h3><p class="muted">Our listings come straight from the charter companies' booking systems and refresh daily, so you don't fall in love with a boat that's already gone.</p></div>
+        <div class="feature"><div class="icon">&#36;</div><h3>No booking fees</h3><p class="muted">You pay the charter company's own published price, often discounted on open weeks. Our commission is paid by the fleet, not added to your bill.</p></div>
+        <div class="feature"><div class="icon">&#9875;</div><h3>Owners and a captain</h3><p class="muted">We own a catamaran in the BVI and one of our founders is a licensed captain. We'll tell you honestly which boat and area suits your group.</p></div>
+        <div class="feature"><div class="icon">&#128172;</div><h3>English, Hindi, Telugu</h3><p class="muted">Ask us anything in the language you're most comfortable in, by email, phone or WhatsApp.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <div><h2>Tell us your dates. We'll find the boat.</h2><p>Free, no-obligation quotes. We aim to reply within a few hours.</p></div>
+        <a class="btn btn-primary" href={url("/contact/")}>Plan my charter</a>
+      </div>
+    </div>
+  </section>
+</Base>

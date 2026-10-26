@@ -1,0 +1,1273 @@
+{
+  "generatedAt": "2026-10-26T22:42:04.318Z",
+  "sources": [
+    "sample"
+  ],
+  "yachts": [
+    {
+      "id": "sample-1",
+      "slug": "sample-trade-breeze-lagoon-46-sample-1",
+      "source": "sample",
+      "sourceId": "1",
+      "sample": true,
+      "name": "Sample: Trade Breeze",
+      "model": "Lagoon 46",
+      "type": "catamaran",
+      "lengthFt": 46,
+      "year": 2024,
+      "cabins": 4,
+      "berths": 10,
+      "heads": 4,
+      "base": {
+        "name": "Tortola",
+        "destination": "british-virgin-islands",
+        "country": "BVI"
+      },
+      "operator": "Sample fleet (not a real offer)",
+      "images": [],
+      "equipment": [
+        "Air conditioning",
+        "Generator",
+        "Watermaker",
+        "Dinghy with outboard",
+        "Snorkel gear",
+        "Solar panels",
+        "Bluetooth audio"
+      ],
+      "description": "",
+      "crewed": false,
+      "weeks": [
+        {
+          "start": "2026-11-14",
+          "end": "2026-11-21",
+          "price": 7730,
+          "listPrice": 10350,
+          "currency": "USD"
+        },
+        {
+          "start": "2026-11-21",
+          "end": "2026-11-28",
+          "price": 8180,
+          "listPrice": 10350,
+          "currency": "USD"
+        },
+        {
+          "start": "2026-11-28",
+          "end": "2026-12-05",
+          "price": 8660,
+          "listPrice": 10350,
+          "currency": "USD"
+        },
+        {
+          "start": "2026-12-19",
+          "end": "2026-12-26",
+          "price": 11600,
+          "listPrice": 14400,
+          "currency": "USD"
+        },
+        {
+          "start": "2026-12-26",
+          "end": "2027-01-02",
+          "price": 11620,
+          "listPrice": 14400,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-01-16",
+          "end": "2027-01-23",
+          "price": 14400,
+          "listPrice": 14400,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-01-23",
+          "end": "2027-01-30",
+          "price": 14400,
+          "listPrice": 14400,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-02-06",
+          "end": "2027-02-13",
+          "price": 14400,
+          "listPrice": 14400,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-03-13",
+          "end": "2027-03-20",
+          "price": 13680,
+          "listPrice": 14400,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-03-20",
+          "end": "2027-03-27",
+          "price": 14400,
+          "listPrice": 14400,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-04-17",
+          "end": "2027-04-24",
+          "price": 13680,
+          "listPrice": 14400,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-29",
+          "end": "2027-06-05",
+          "price": 9830,
+          "listPrice": 10350,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-06-05",
+          "end": "2027-06-12",
+          "price": 10350,
+          "listPrice": 10350,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-06-12",
+          "end": "2027-06-19",
+          "price": 10350,
+          "listPrice": 10350,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-07-17",
+          "end": "2027-07-24",
+          "price": 9830,
+          "listPrice": 10350,
+          "currency": "USD"
+        }
+      ]
+    },
+    {
+      "id": "sample-2",
+      "slug": "sample-island-hop-bali-4-6-sample-2",
+      "source": "sample",
+      "sourceId": "2",
+      "sample": true,
+      "name": "Sample: Island Hop",
+      "model": "Bali 4.6",
+      "type": "catamaran",
+      "lengthFt": 46,
+      "year": 2023,
+      "cabins": 4,
+      "berths": 10,
+      "heads": 4,
+      "base": {
+        "name": "Tortola",
+        "destination": "british-virgin-islands",
+        "country": "BVI"
+      },
+      "operator": "Sample fleet (not a real offer)",
+      "images": [],
+      "equipment": [
+        "Air conditioning",
+        "Generator",
+        "Watermaker",
+        "Dinghy with outboard",
+        "Snorkel gear",
+        "Solar panels",
+        "Bluetooth audio"
+      ],
+      "description": "",
+      "crewed": false,
+      "weeks": [
+        {
+          "start": "2026-11-07",
+          "end": "2026-11-14",
+          "price": 6890,
+          "listPrice": 9200,
+          "currency": "USD"
+        },
+        {
+          "start": "2026-11-21",
+          "end": "2026-11-28",
+          "price": 7100,
+          "listPrice": 9200,
+          "currency": "USD"
+        },
+        {
+          "start": "2026-12-12",
+          "end": "2026-12-19",
+          "price": 10360,
+          "listPrice": 12750,
+          "currency": "USD"
+        },
+        {
+          "start": "2026-12-19",
+          "end": "2026-12-26",
+          "price": 10240,
+          "listPrice": 12750,
+          "currency": "USD"
+        },
+        {
+          "start": "2026-12-26",
+          "end": "2027-01-02",
+          "price": 11000,
+          "listPrice": 12750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-01-02",
+          "end": "2027-01-09",
+          "price": 10220,
+          "listPrice": 12750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-02-06",
+          "end": "2027-02-13",
+          "price": 12750,
+          "listPrice": 12750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-02-20",
+          "end": "2027-02-27",
+          "price": 12750,
+          "listPrice": 12750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-03-20",
+          "end": "2027-03-27",
+          "price": 12750,
+          "listPrice": 12750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-04-03",
+          "end": "2027-04-10",
+          "price": 12750,
+          "listPrice": 12750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-04-17",
+          "end": "2027-04-24",
+          "price": 12750,
+          "listPrice": 12750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-08",
+          "end": "2027-05-15",
+          "price": 8740,
+          "listPrice": 9200,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-22",
+          "end": "2027-05-29",
+          "price": 9200,
+          "listPrice": 9200,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-06-05",
+          "end": "2027-06-12",
+          "price": 8740,
+          "listPrice": 9200,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-06-26",
+          "end": "2027-07-03",
+          "price": 9200,
+          "listPrice": 9200,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-07-10",
+          "end": "2027-07-17",
+          "price": 9200,
+          "listPrice": 9200,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-07-17",
+          "end": "2027-07-24",
+          "price": 8740,
+          "listPrice": 9200,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-07-24",
+          "end": "2027-07-31",
+          "price": 8740,
+          "listPrice": 9200,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-07-31",
+          "end": "2027-08-07",
+          "price": 8740,
+          "listPrice": 9200,
+          "currency": "USD"
+        }
+      ]
+    },
+    {
+      "id": "sample-3",
+      "slug": "sample-coral-run-leopard-45-sample-3",
+      "source": "sample",
+      "sourceId": "3",
+      "sample": true,
+      "name": "Sample: Coral Run",
+      "model": "Leopard 45",
+      "type": "catamaran",
+      "lengthFt": 45,
+      "year": 2022,
+      "cabins": 4,
+      "berths": 10,
+      "heads": 4,
+      "base": {
+        "name": "Tortola",
+        "destination": "british-virgin-islands",
+        "country": "BVI"
+      },
+      "operator": "Sample fleet (not a real offer)",
+      "images": [],
+      "equipment": [
+        "Air conditioning",
+        "Generator",
+        "Watermaker",
+        "Dinghy with outboard",
+        "Snorkel gear",
+        "Solar panels",
+        "Bluetooth audio"
+      ],
+      "description": "",
+      "crewed": false,
+      "weeks": [
+        {
+          "start": "2026-12-05",
+          "end": "2026-12-12",
+          "price": 10570,
+          "listPrice": 11750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-01-02",
+          "end": "2027-01-09",
+          "price": 9400,
+          "listPrice": 11750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-01-23",
+          "end": "2027-01-30",
+          "price": 11750,
+          "listPrice": 11750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-02-06",
+          "end": "2027-02-13",
+          "price": 11750,
+          "listPrice": 11750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-02-13",
+          "end": "2027-02-20",
+          "price": 11160,
+          "listPrice": 11750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-02-20",
+          "end": "2027-02-27",
+          "price": 11160,
+          "listPrice": 11750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-02-27",
+          "end": "2027-03-06",
+          "price": 11750,
+          "listPrice": 11750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-03-06",
+          "end": "2027-03-13",
+          "price": 11160,
+          "listPrice": 11750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-03-13",
+          "end": "2027-03-20",
+          "price": 11750,
+          "listPrice": 11750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-03-20",
+          "end": "2027-03-27",
+          "price": 11160,
+          "listPrice": 11750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-01",
+          "end": "2027-05-08",
+          "price": 8450,
+          "listPrice": 8450,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-08",
+          "end": "2027-05-15",
+          "price": 8450,
+          "listPrice": 8450,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-15",
+          "end": "2027-05-22",
+          "price": 8030,
+          "listPrice": 8450,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-29",
+          "end": "2027-06-05",
+          "price": 8450,
+          "listPrice": 8450,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-06-05",
+          "end": "2027-06-12",
+          "price": 8450,
+          "listPrice": 8450,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-06-19",
+          "end": "2027-06-26",
+          "price": 8450,
+          "listPrice": 8450,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-07-03",
+          "end": "2027-07-10",
+          "price": 8450,
+          "listPrice": 8450,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-07-10",
+          "end": "2027-07-17",
+          "price": 8450,
+          "listPrice": 8450,
+          "currency": "USD"
+        }
+      ]
+    },
+    {
+      "id": "sample-4",
+      "slug": "sample-blue-lagoon-lagoon-50-sample-4",
+      "source": "sample",
+      "sourceId": "4",
+      "sample": true,
+      "name": "Sample: Blue Lagoon",
+      "model": "Lagoon 50",
+      "type": "catamaran",
+      "lengthFt": 50,
+      "year": 2023,
+      "cabins": 6,
+      "berths": 12,
+      "heads": 6,
+      "base": {
+        "name": "Nassau",
+        "destination": "bahamas",
+        "country": "Bahamas"
+      },
+      "operator": "Sample fleet (not a real offer)",
+      "images": [],
+      "equipment": [
+        "Air conditioning",
+        "Generator",
+        "Watermaker",
+        "Dinghy with outboard",
+        "Snorkel gear",
+        "Solar panels",
+        "Bluetooth audio"
+      ],
+      "description": "",
+      "crewed": false,
+      "weeks": [
+        {
+          "start": "2026-12-12",
+          "end": "2026-12-19",
+          "price": 16430,
+          "listPrice": 19750,
+          "currency": "USD"
+        },
+        {
+          "start": "2026-12-19",
+          "end": "2026-12-26",
+          "price": 16310,
+          "listPrice": 19750,
+          "currency": "USD"
+        },
+        {
+          "start": "2026-12-26",
+          "end": "2027-01-02",
+          "price": 17730,
+          "listPrice": 19750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-01-09",
+          "end": "2027-01-16",
+          "price": 17240,
+          "listPrice": 19750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-01-16",
+          "end": "2027-01-23",
+          "price": 19750,
+          "listPrice": 19750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-03-06",
+          "end": "2027-03-13",
+          "price": 19750,
+          "listPrice": 19750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-03-20",
+          "end": "2027-03-27",
+          "price": 19750,
+          "listPrice": 19750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-04-24",
+          "end": "2027-05-01",
+          "price": 19750,
+          "listPrice": 19750,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-08",
+          "end": "2027-05-15",
+          "price": 14200,
+          "listPrice": 14200,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-06-12",
+          "end": "2027-06-19",
+          "price": 13490,
+          "listPrice": 14200,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-06-26",
+          "end": "2027-07-03",
+          "price": 13490,
+          "listPrice": 14200,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-07-03",
+          "end": "2027-07-10",
+          "price": 14200,
+          "listPrice": 14200,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-07-31",
+          "end": "2027-08-07",
+          "price": 14200,
+          "listPrice": 14200,
+          "currency": "USD"
+        }
+      ]
+    },
+    {
+      "id": "sample-5",
+      "slug": "sample-salt-kiss-fountaine-pajot-elba-45-sample-5",
+      "source": "sample",
+      "sourceId": "5",
+      "sample": true,
+      "name": "Sample: Salt Kiss",
+      "model": "Fountaine Pajot Elba 45",
+      "type": "catamaran",
+      "lengthFt": 45,
+      "year": 2024,
+      "cabins": 4,
+      "berths": 10,
+      "heads": 4,
+      "base": {
+        "name": "Marigot",
+        "destination": "st-martin",
+        "country": "St. Martin"
+      },
+      "operator": "Sample fleet (not a real offer)",
+      "images": [],
+      "equipment": [
+        "Air conditioning",
+        "Generator",
+        "Watermaker",
+        "Dinghy with outboard",
+        "Snorkel gear",
+        "Solar panels",
+        "Bluetooth audio"
+      ],
+      "description": "",
+      "crewed": false,
+      "weeks": [
+        {
+          "start": "2026-11-07",
+          "end": "2026-11-14",
+          "price": 6440,
+          "listPrice": 9800,
+          "currency": "USD"
+        },
+        {
+          "start": "2026-11-21",
+          "end": "2026-11-28",
+          "price": 7030,
+          "listPrice": 9800,
+          "currency": "USD"
+        },
+        {
+          "start": "2026-12-26",
+          "end": "2027-01-02",
+          "price": 12210,
+          "listPrice": 13650,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-01-02",
+          "end": "2027-01-09",
+          "price": 11320,
+          "listPrice": 13650,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-01-09",
+          "end": "2027-01-16",
+          "price": 12270,
+          "listPrice": 13650,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-01-16",
+          "end": "2027-01-23",
+          "price": 12970,
+          "listPrice": 13650,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-01-23",
+          "end": "2027-01-30",
+          "price": 12970,
+          "listPrice": 13650,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-02-13",
+          "end": "2027-02-20",
+          "price": 13650,
+          "listPrice": 13650,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-03-06",
+          "end": "2027-03-13",
+          "price": 12970,
+          "listPrice": 13650,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-03-20",
+          "end": "2027-03-27",
+          "price": 13650,
+          "listPrice": 13650,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-03-27",
+          "end": "2027-04-03",
+          "price": 13650,
+          "listPrice": 13650,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-04-17",
+          "end": "2027-04-24",
+          "price": 13650,
+          "listPrice": 13650,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-04-24",
+          "end": "2027-05-01",
+          "price": 13650,
+          "listPrice": 13650,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-01",
+          "end": "2027-05-08",
+          "price": 9800,
+          "listPrice": 9800,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-08",
+          "end": "2027-05-15",
+          "price": 9800,
+          "listPrice": 9800,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-15",
+          "end": "2027-05-22",
+          "price": 9800,
+          "listPrice": 9800,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-22",
+          "end": "2027-05-29",
+          "price": 9800,
+          "listPrice": 9800,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-06-26",
+          "end": "2027-07-03",
+          "price": 9800,
+          "listPrice": 9800,
+          "currency": "USD"
+        }
+      ]
+    },
+    {
+      "id": "sample-6",
+      "slug": "sample-spice-wind-lagoon-42-sample-6",
+      "source": "sample",
+      "sourceId": "6",
+      "sample": true,
+      "name": "Sample: Spice Wind",
+      "model": "Lagoon 42",
+      "type": "catamaran",
+      "lengthFt": 42,
+      "year": 2021,
+      "cabins": 4,
+      "berths": 10,
+      "heads": 2,
+      "base": {
+        "name": "St. George's",
+        "destination": "grenadines",
+        "country": "Grenada"
+      },
+      "operator": "Sample fleet (not a real offer)",
+      "images": [],
+      "equipment": [
+        "Air conditioning",
+        "Generator",
+        "Watermaker",
+        "Dinghy with outboard",
+        "Snorkel gear",
+        "Solar panels",
+        "Bluetooth audio"
+      ],
+      "description": "",
+      "crewed": false,
+      "weeks": [
+        {
+          "start": "2026-11-07",
+          "end": "2026-11-14",
+          "price": 5050,
+          "listPrice": 6500,
+          "currency": "USD"
+        },
+        {
+          "start": "2026-11-14",
+          "end": "2026-11-21",
+          "price": 5160,
+          "listPrice": 6500,
+          "currency": "USD"
+        },
+        {
+          "start": "2026-11-28",
+          "end": "2026-12-05",
+          "price": 5390,
+          "listPrice": 6500,
+          "currency": "USD"
+        },
+        {
+          "start": "2026-12-05",
+          "end": "2026-12-12",
+          "price": 7550,
+          "listPrice": 9000,
+          "currency": "USD"
+        },
+        {
+          "start": "2026-12-12",
+          "end": "2026-12-19",
+          "price": 8030,
+          "listPrice": 9000,
+          "currency": "USD"
+        },
+        {
+          "start": "2026-12-19",
+          "end": "2026-12-26",
+          "price": 7970,
+          "listPrice": 9000,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-01-02",
+          "end": "2027-01-09",
+          "price": 7960,
+          "listPrice": 9000,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-01-30",
+          "end": "2027-02-06",
+          "price": 9000,
+          "listPrice": 9000,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-02-20",
+          "end": "2027-02-27",
+          "price": 9000,
+          "listPrice": 9000,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-02-27",
+          "end": "2027-03-06",
+          "price": 9000,
+          "listPrice": 9000,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-03-06",
+          "end": "2027-03-13",
+          "price": 9000,
+          "listPrice": 9000,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-03-27",
+          "end": "2027-04-03",
+          "price": 9000,
+          "listPrice": 9000,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-04-03",
+          "end": "2027-04-10",
+          "price": 9000,
+          "listPrice": 9000,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-01",
+          "end": "2027-05-08",
+          "price": 6180,
+          "listPrice": 6500,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-08",
+          "end": "2027-05-15",
+          "price": 6500,
+          "listPrice": 6500,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-22",
+          "end": "2027-05-29",
+          "price": 6180,
+          "listPrice": 6500,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-06-05",
+          "end": "2027-06-12",
+          "price": 6500,
+          "listPrice": 6500,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-06-26",
+          "end": "2027-07-03",
+          "price": 6180,
+          "listPrice": 6500,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-07-10",
+          "end": "2027-07-17",
+          "price": 6500,
+          "listPrice": 6500,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-07-17",
+          "end": "2027-07-24",
+          "price": 6500,
+          "listPrice": 6500,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-07-24",
+          "end": "2027-07-31",
+          "price": 6500,
+          "listPrice": 6500,
+          "currency": "USD"
+        }
+      ]
+    },
+    {
+      "id": "sample-7",
+      "slug": "sample-aegean-light-bali-4-4-sample-7",
+      "source": "sample",
+      "sourceId": "7",
+      "sample": true,
+      "name": "Sample: Aegean Light",
+      "model": "Bali 4.4",
+      "type": "catamaran",
+      "lengthFt": 44,
+      "year": 2023,
+      "cabins": 4,
+      "berths": 10,
+      "heads": 4,
+      "base": {
+        "name": "Lefkada",
+        "destination": "greece",
+        "country": "Greece"
+      },
+      "operator": "Sample fleet (not a real offer)",
+      "images": [],
+      "equipment": [
+        "Air conditioning",
+        "Generator",
+        "Watermaker",
+        "Dinghy with outboard",
+        "Snorkel gear",
+        "Solar panels",
+        "Bluetooth audio"
+      ],
+      "description": "",
+      "crewed": false,
+      "weeks": [
+        {
+          "start": "2027-04-10",
+          "end": "2027-04-17",
+          "price": 5650,
+          "listPrice": 5950,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-29",
+          "end": "2027-06-05",
+          "price": 7510,
+          "listPrice": 7900,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-06-26",
+          "end": "2027-07-03",
+          "price": 7900,
+          "listPrice": 7900,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-07-10",
+          "end": "2027-07-17",
+          "price": 10650,
+          "listPrice": 10650,
+          "currency": "USD"
+        }
+      ]
+    },
+    {
+      "id": "sample-8",
+      "slug": "sample-olive-grove-beneteau-oceanis-46-1-sample-8",
+      "source": "sample",
+      "sourceId": "8",
+      "sample": true,
+      "name": "Sample: Olive Grove",
+      "model": "Beneteau Oceanis 46.1",
+      "type": "monohull",
+      "lengthFt": 46,
+      "year": 2022,
+      "cabins": 4,
+      "berths": 10,
+      "heads": 3,
+      "base": {
+        "name": "Athens (Alimos)",
+        "destination": "greece",
+        "country": "Greece"
+      },
+      "operator": "Sample fleet (not a real offer)",
+      "images": [],
+      "equipment": [
+        "Bimini and sprayhood",
+        "Dinghy with outboard",
+        "Electric windlass",
+        "Chart plotter",
+        "Snorkel gear",
+        "Bluetooth audio"
+      ],
+      "description": "",
+      "crewed": false,
+      "weeks": [
+        {
+          "start": "2027-04-17",
+          "end": "2027-04-24",
+          "price": 3900,
+          "listPrice": 3900,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-15",
+          "end": "2027-05-22",
+          "price": 5200,
+          "listPrice": 5200,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-22",
+          "end": "2027-05-29",
+          "price": 4940,
+          "listPrice": 5200,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-06-05",
+          "end": "2027-06-12",
+          "price": 5200,
+          "listPrice": 5200,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-06-12",
+          "end": "2027-06-19",
+          "price": 5200,
+          "listPrice": 5200,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-06-19",
+          "end": "2027-06-26",
+          "price": 5200,
+          "listPrice": 5200,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-06-26",
+          "end": "2027-07-03",
+          "price": 5200,
+          "listPrice": 5200,
+          "currency": "USD"
+        }
+      ]
+    },
+    {
+      "id": "sample-9",
+      "slug": "sample-adriatic-star-lagoon-46-sample-9",
+      "source": "sample",
+      "sourceId": "9",
+      "sample": true,
+      "name": "Sample: Adriatic Star",
+      "model": "Lagoon 46",
+      "type": "catamaran",
+      "lengthFt": 46,
+      "year": 2024,
+      "cabins": 4,
+      "berths": 12,
+      "heads": 4,
+      "base": {
+        "name": "Split",
+        "destination": "croatia",
+        "country": "Croatia"
+      },
+      "operator": "Sample fleet (not a real offer)",
+      "images": [],
+      "equipment": [
+        "Air conditioning",
+        "Generator",
+        "Watermaker",
+        "Dinghy with outboard",
+        "Snorkel gear",
+        "Solar panels",
+        "Bluetooth audio"
+      ],
+      "description": "",
+      "crewed": false,
+      "weeks": [
+        {
+          "start": "2026-10-31",
+          "end": "2026-11-07",
+          "price": 5690,
+          "listPrice": 7350,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-04-17",
+          "end": "2027-04-24",
+          "price": 6980,
+          "listPrice": 7350,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-04-24",
+          "end": "2027-05-01",
+          "price": 7350,
+          "listPrice": 7350,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-22",
+          "end": "2027-05-29",
+          "price": 9800,
+          "listPrice": 9800,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-06-12",
+          "end": "2027-06-19",
+          "price": 9800,
+          "listPrice": 9800,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-06-26",
+          "end": "2027-07-03",
+          "price": 9800,
+          "listPrice": 9800,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-07-03",
+          "end": "2027-07-10",
+          "price": 13250,
+          "listPrice": 13250,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-07-24",
+          "end": "2027-07-31",
+          "price": 13250,
+          "listPrice": 13250,
+          "currency": "USD"
+        }
+      ]
+    },
+    {
+      "id": "sample-10",
+      "slug": "sample-pine-bay-jeanneau-sun-odyssey-440-sample-10",
+      "source": "sample",
+      "sourceId": "10",
+      "sample": true,
+      "name": "Sample: Pine Bay",
+      "model": "Jeanneau Sun Odyssey 440",
+      "type": "monohull",
+      "lengthFt": 44,
+      "year": 2021,
+      "cabins": 4,
+      "berths": 10,
+      "heads": 2,
+      "base": {
+        "name": "Split",
+        "destination": "croatia",
+        "country": "Croatia"
+      },
+      "operator": "Sample fleet (not a real offer)",
+      "images": [],
+      "equipment": [
+        "Bimini and sprayhood",
+        "Dinghy with outboard",
+        "Electric windlass",
+        "Chart plotter",
+        "Snorkel gear",
+        "Bluetooth audio"
+      ],
+      "description": "",
+      "crewed": false,
+      "weeks": [
+        {
+          "start": "2026-10-31",
+          "end": "2026-11-07",
+          "price": 2380,
+          "listPrice": 3250,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-04-17",
+          "end": "2027-04-24",
+          "price": 3090,
+          "listPrice": 3250,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-08",
+          "end": "2027-05-15",
+          "price": 4300,
+          "listPrice": 4300,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-05-22",
+          "end": "2027-05-29",
+          "price": 4090,
+          "listPrice": 4300,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-06-12",
+          "end": "2027-06-19",
+          "price": 4300,
+          "listPrice": 4300,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-07-03",
+          "end": "2027-07-10",
+          "price": 5510,
+          "listPrice": 5800,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-07-17",
+          "end": "2027-07-24",
+          "price": 5510,
+          "listPrice": 5800,
+          "currency": "USD"
+        },
+        {
+          "start": "2027-07-24",
+          "end": "2027-07-31",
+          "price": 5510,
+          "listPrice": 5800,
+          "currency": "USD"
+        }
+      ]
+    }
+  ]
+}

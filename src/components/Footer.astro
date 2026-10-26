@@ -1,0 +1,45 @@
+---
+import Logo from "./Logo.astro";
+import { site, destinations, url } from "../lib/data.js";
+const year = new Date().getFullYear();
+const social = Object.entries(site.social).filter(([, href]) => href);
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href={url("/")} style="color: white"><Logo /> {site.name}</a>
+        <p style="margin-top: 14px">{site.tagline}</p>
+        <p class="small">{site.story}</p>
+        <p class="small">We speak {site.languages.join(", ")}.</p>
+      </div>
+      <div>
+        <h4>Destinations</h4>
+        <ul>{destinations.map((d) => <li><a href={url(`/destinations/${d.slug}/`)}>{d.name}</a></li>)}</ul>
+      </div>
+      <div>
+        <h4>Charter</h4>
+        <ul>
+          <li><a href={url("/open-weeks/")}>Open weeks and deals</a></li>
+          <li><a href={url("/yachts/")}>Find a yacht</a></li>
+          <li><a href={url("/how-it-works/")}>How booking works</a></li>
+          <li><a href={url("/contact/")}>Get a quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href={url("/about/")}>About us</a></li>
+          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          {social.map(([name, href]) => <li><a href={href} rel="noopener">{name[0].toUpperCase() + name.slice(1)}</a></li>)}
+          <li><a href={url("/terms/")}>Booking terms</a></li>
+          <li><a href={url("/privacy/")}>Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; {year} {site.name} LLC. We act as a booking agent; each charter is provided by the yacht's charter company under its own contract.</span>
+      <span>{site.domain}</span>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,63 @@
+[
+  {
+    "slug": "british-virgin-islands",
+    "name": "British Virgin Islands",
+    "region": "Caribbean",
+    "flagship": true,
+    "bestMonths": "December to May",
+    "season": "Peak season runs from mid-December to April. June to November is hurricane season, when prices drop and some weeks need flexible plans.",
+    "summary": "Short, line-of-sight hops between more than 50 islands make the BVI the easiest bareboat area in the world, and the home of our own catamaran.",
+    "highlights": ["Norman Island and The Bight", "The Baths on Virgin Gorda", "Anegada's lobster beach bars", "Jost Van Dyke and White Bay"],
+    "keywords": ["BVI catamaran charter", "British Virgin Islands yacht charter", "bareboat charter BVI"]
+  },
+  {
+    "slug": "bahamas",
+    "name": "Bahamas",
+    "region": "Caribbean",
+    "bestMonths": "December to May",
+    "season": "Winter and spring bring steady trade winds and the clearest water. Summer is hotter, calmer and cheaper.",
+    "summary": "Shallow turquoise banks, empty cays and swimming pigs. Catamarans are ideal here because of their shallow draft.",
+    "highlights": ["Exuma Cays Land and Sea Park", "Abaco's Hope Town", "Shallow-water snorkelling", "Remote anchorages"],
+    "keywords": ["Bahamas catamaran charter", "Exumas yacht charter", "Abacos sailing charter"]
+  },
+  {
+    "slug": "st-martin",
+    "name": "St. Martin and Anguilla",
+    "region": "Caribbean",
+    "bestMonths": "December to April",
+    "season": "Best from mid-December to April. Hurricane season runs June to November.",
+    "summary": "French and Dutch food culture, long crossings to St. Barths and Anguilla's white beaches, for sailors who want a bit more open water.",
+    "highlights": ["Gustavia, St. Barths", "Anguilla's Prickly Pear Cays", "Marigot market", "Tintamarre island"],
+    "keywords": ["St Martin yacht charter", "St Barths catamaran charter", "Anguilla sailing"]
+  },
+  {
+    "slug": "grenadines",
+    "name": "Grenada and the Grenadines",
+    "region": "Caribbean",
+    "bestMonths": "December to June",
+    "season": "Dry season runs December to June. Grenada sits at the south of the hurricane belt.",
+    "summary": "Unspoilt islands, the Tobago Cays marine park and a more adventurous feel than the Virgin Islands.",
+    "highlights": ["Tobago Cays turtles", "Bequia's Admiralty Bay", "Mustique", "Carriacou"],
+    "keywords": ["Grenadines yacht charter", "Grenada catamaran charter", "Tobago Cays sailing"]
+  },
+  {
+    "slug": "greece",
+    "name": "Greece",
+    "region": "Mediterranean",
+    "bestMonths": "May to October",
+    "season": "May, June and September are ideal. July and August are busiest; the Aegean's meltemi wind can be strong then, so the Ionian suits families.",
+    "summary": "Thousands of islands, from the sheltered Ionian to the Cyclades. Great food, ancient sites and short day sails.",
+    "highlights": ["Ionian islands from Lefkada", "Saronic Gulf from Athens", "Cyclades for experienced crews", "Village tavernas on the quay"],
+    "keywords": ["Greece yacht charter", "Greek islands catamaran charter", "Ionian sailing charter"]
+  },
+  {
+    "slug": "croatia",
+    "name": "Croatia",
+    "region": "Mediterranean",
+    "bestMonths": "May to October",
+    "season": "June and September balance warm water and fewer crowds. July and August are peak and book early.",
+    "summary": "The Dalmatian coast's islands, walled towns and national parks, with the biggest charter fleets in Europe.",
+    "highlights": ["Hvar and the Pakleni islands", "Kornati National Park", "Dubrovnik's old town", "Vis and the Blue Cave"],
+    "keywords": ["Croatia yacht charter", "Split catamaran charter", "Dalmatia sailing charter"]
+  }
+]

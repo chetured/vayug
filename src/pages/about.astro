@@ -1,0 +1,20 @@
+---
+import Base from "../layouts/Base.astro";
+import { site, url } from "../lib/data.js";
+---
+<Base title="About us" description={`${site.name} is a yacht charter agency run by two boat owners, one of them a licensed captain. ${site.story}`}>
+  <section class="hero page-hero"><div class="container"><p class="eyebrow" style="color:#ffd9a8">Our story</p><h1>Owners first, agents second.</h1></div></section>
+  <section class="section">
+    <div class="container prose">
+      <p class="lead">{site.name} was founded by business partners Shay and Rahul, from Ohio, who love sailing enough to own a charter catamaran in the British Virgin Islands. Rahul is a licensed captain.</p>
+      <h2>Why "Vayu"?</h2>
+      <p>{site.story} It's the quiet power behind every good day on the water, and a nod to our roots.</p>
+      <h2>What we do</h2>
+      <p>Charter companies around the world have weeks that haven't sold yet. We connect directly to their booking systems, show those open weeks with real prices, and help you pick the right boat, the right place and the right time. Then we handle the booking with the charter company for you.</p>
+      <h2>How we're paid</h2>
+      <p>The charter company pays us a commission. You pay their price, and often less when we find you an open-week discount. We don't add booking fees.</p>
+      <h2>Talk to us</h2>
+      <p>Write, call or WhatsApp us in {site.languages.join(", ")}. <a href={url("/contact/")}>Send us your dates</a> and we'll come back with options.</p>
+    </div>
+  </section>
+</Base>

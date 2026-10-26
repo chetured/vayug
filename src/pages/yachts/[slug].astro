@@ -1,0 +1,86 @@
+---
+import Base from "../../layouts/Base.astro";
+import BoatArt from "../../components/BoatArt.astro";
+import EnquiryForm from "../../components/EnquiryForm.astro";
+import YachtCard from "../../components/YachtCard.astro";
+import { site, yachts, destination, money, dateRange, discountPct, fromPrice, url } from "../../lib/data.js";
+
+export function getStaticPaths() {
+  return yachts.map((yacht) => ({ params: { slug: yacht.slug }, props: { yacht } }));
+}
+
+const { yacht } = Astro.props;
+const dest = destination(yacht.base.destination);
+const price = fromPrice(yacht);
+const similar = yachts.filter((y) => y.id !== yacht.id && y.base.destination === yacht.base.destination && y.weeks.length).slice(0, 3);
+const fallbackDescription = `The ${yacht.model} is a ${Math.round(yacht.lengthFt || 0)} ft ${yacht.type} with ${yacht.cabins} cabins and ${yacht.heads} bathrooms, sleeping up to ${yacht.berths}. She is based in ${yacht.base.name}, the perfect starting point for exploring ${dest?.name ?? yacht.base.country}.`;
+const description = yacht.description || fallbackDescription;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: `${yacht.model} charter in ${yacht.base.name}`,
+  description,
+  category: "Yacht charter",
+  offers: price ? {
+    "@type": "AggregateOffer",
+    priceCurrency: "USD",
+    lowPrice: price,
+    highPrice: Math.max(...yacht.weeks.map((w) => w.price)),
+    offerCount: yacht.weeks.length,
+    availability: "https://schema.org/InStock",
+  } : undefined,
+};
+---
+<Base title={`${yacht.model} charter in ${yacht.base.name}`} description={`${yacht.model} ${yacht.type}, ${yacht.cabins} cabins, based in ${yacht.base.name}. ${yacht.weeks.length} open weeks${price ? ` from ${money(price)} per week` : ""}.`} jsonLd={jsonLd} noindex={yacht.sample}>
+  <section class="section" style="padding-top: 40px">
+    <div class="container">
+      <p class="muted small"><a href={url("/yachts/")}>Yachts</a> / <a href={url(`/destinations/${yacht.base.destination}/`)}>{dest?.name}</a></p>
+      <div class="detail">
+        <div>
+          <div class="gallery">
+            {yacht.images[0] ? <img src={yacht.images[0]} alt={`${yacht.model} ${yacht.name}`} style="width:100%;height:100%;object-fit:cover" /> : <BoatArt type={yacht.type} />}
+          </div>
+          <h1 style="margin-top: 24px">{yacht.model}</h1>
+          <p class="lead">{yacht.name} &middot; {yacht.base.name}, {dest?.name ?? yacht.base.country}</p>
+          {yacht.sample && <p class="demo-banner" style="border-radius: 10px">This is a sample listing used to preview the site. It is not a real yacht or offer.</p>}
+          <div class="spec-grid">
+            <div class="spec"><span class="muted small">Type</span><strong>{yacht.type === "catamaran" ? "Catamaran" : "Monohull"}</strong></div>
+            <div class="spec"><span class="muted small">Length</span><strong>{Math.round(yacht.lengthFt || 0)} ft</strong></div>
+            <div class="spec"><span class="muted small">Cabins</span><strong>{yacht.cabins}</strong></div>
+            <div class="spec"><span class="muted small">Sleeps</span><strong>{yacht.berths}</strong></div>
+            <div class="spec"><span class="muted small">Bathrooms</span><strong>{yacht.heads}</strong></div>
+            <div class="spec"><span class="muted small">Built</span><strong>{yacht.year}</strong></div>
+          </div>
+          <h2>About this yacht</h2>
+          {description.split(/\n\n+/).map((p) => <p>{p}</p>)}
+          {yacht.equipment.length > 0 && (<><h2>On board</h2><ul class="chips">{yacht.equipment.map((e) => <li>{e}</li>)}</ul></>)}
+          {dest && (<><h2>Sailing in {dest.name}</h2><p>{dest.summary}</p><p class="muted">{dest.season}</p></>)}
+          {yacht.operator && <p class="muted small">Charter operated by {yacht.operator}. {site.name} acts as booking agent.</p>}
+        </div>
+        <aside class="sticky-box">
+          {price ? <p><span class="muted">from</span> <span class="price">{money(price)}</span> <span class="muted">per week</span></p> : <p class="muted">No open weeks listed. Ask us about other dates.</p>}
+          <ul class="week-list">
+            {yacht.weeks.map((w) => {
+              const off = discountPct(w);
+              const label = `${dateRange(w.start, w.end)}, ${money(w.price)}`;
+              return (
+                <li id={`week-${w.start}`}>
+                  <span>{dateRange(w.start, w.end)}<br /><strong>{money(w.price)}</strong>{off > 0 && <span class="off small" style="color: var(--coral-dark)"> -{off}%</span>}</span>
+                  <button type="button" data-pick-week={label}>Enquire</button>
+                </li>
+              );
+            })}
+          </ul>
+          <p class="small" data-picked-week></p>
+          <EnquiryForm yacht={yacht} compact />
+        </aside>
+      </div>
+      {similar.length > 0 && (
+        <div style="margin-top: 64px">
+          <h2>Similar yachts in {dest?.name}</h2>
+          <div class="grid">{similar.map((y) => <YachtCard yacht={y} />)}</div>
+        </div>
+      )}
+    </div>
+  </section>
+</Base>

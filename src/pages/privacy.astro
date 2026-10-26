@@ -1,0 +1,20 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../lib/data.js";
+---
+<Base title="Privacy policy" description={`How ${site.name} handles your personal information.`}>
+  <section class="section">
+    <div class="container prose">
+      <h1>Privacy policy</h1>
+      <p class="demo-banner" style="border-radius:10px">Draft for review by our attorney before launch.</p>
+      <h2>What we collect</h2>
+      <p>When you send an enquiry we collect the details you give us: name, email, phone number, travel dates, group size and preferences. If analytics is enabled we also collect anonymous usage data such as pages visited.</p>
+      <h2>How we use it</h2>
+      <p>To answer your enquiry, prepare quotes, make bookings with charter companies on your behalf, and, if you agree, send you open-week offers by email. You can unsubscribe at any time.</p>
+      <h2>Who we share it with</h2>
+      <p>Only the charter company you book with, and the service providers that run our website, email and payments. We never sell your data.</p>
+      <h2>Your choices</h2>
+      <p>Ask us at any time to see, correct or delete your information: <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+    </div>
+  </section>
+</Base>

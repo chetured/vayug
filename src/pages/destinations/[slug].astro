@@ -1,0 +1,43 @@
+---
+import Base from "../../layouts/Base.astro";
+import YachtCard from "../../components/YachtCard.astro";
+import EnquiryForm from "../../components/EnquiryForm.astro";
+import { destinations, yachts, openWeeks, money, dateRange, url } from "../../lib/data.js";
+
+export function getStaticPaths() {
+  return destinations.map((d) => ({ params: { slug: d.slug }, props: { d } }));
+}
+const { d } = Astro.props;
+const fleet = yachts.filter((y) => y.base.destination === d.slug && y.weeks.length);
+const deals = openWeeks({ days: 90, destinationSlug: d.slug }).slice(0, 5);
+---
+<Base title={`${d.name} yacht charter`} description={`${d.name} catamaran and yacht charters: ${d.summary} Best months: ${d.bestMonths}.`}>
+  <section class={`hero page-hero`}>
+    <div class="container">
+      <p class="eyebrow" style="color: #ffd9a8">{d.region}</p>
+      <h1>{d.name} yacht charter</h1>
+      <p class="lead">{d.summary}</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container detail">
+      <div class="prose">
+        <h2>When to go</h2>
+        <p><strong>Best months: {d.bestMonths}.</strong> {d.season}</p>
+        <h2>Highlights</h2>
+        <ul>{d.highlights.map((h) => <li>{h}</li>)}</ul>
+        {deals.length > 0 && (<>
+          <h2>Open weeks coming up</h2>
+          <ul>{deals.map(({ yacht, week, discount }) => <li><a href={url(`/yachts/${yacht.slug}/`)}>{yacht.model}</a>, {dateRange(week.start, week.end)}: <strong>{money(week.price)}</strong>{discount > 0 && ` (${discount}% off)`}</li>)}</ul>
+        </>)}
+      </div>
+      <aside class="sticky-box">
+        <h3>Plan a {d.name} charter</h3>
+        <EnquiryForm compact />
+      </aside>
+    </div>
+  </section>
+  {fleet.length > 0 && (
+    <section class="section sand"><div class="container"><h2>Yachts in {d.name}</h2><div class="grid">{fleet.map((y) => <YachtCard yacht={y} />)}</div></div></section>
+  )}
+</Base>

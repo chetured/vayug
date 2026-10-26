@@ -1,0 +1,26 @@
+{
+  "name": "vayusail",
+  "version": "0.1.0",
+  "description": "Vayu Sailing Co. (vayug.com): yacht charter agency website with live open-week availability and AI marketing automation",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "sync": "node scripts/sync-availability.mjs",
+    "ai:listings": "node scripts/ai/generate-listings.mjs",
+    "ai:newsletter": "node scripts/ai/generate-newsletter.mjs",
+    "ai:social": "node scripts/ai/generate-social.mjs",
+    "check": "node scripts/check-data.mjs"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.3.0",
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^5.18.2"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  }
+}
